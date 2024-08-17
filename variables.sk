@@ -1,0 +1,6 @@
+# vars:
+# {chunkdata::%player's uuid%::center}
+# {chunkdata::%player's uuid%::border}
+# {upgrades::%player's uuid%::borderLevel}
+# {balance::%player's uuid%}
+# {upgrades::%{_p}'s uuid%::upgradeCost}

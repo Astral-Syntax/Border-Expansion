@@ -1,0 +1,37 @@
+# Catch player first join, randomly teleport, and set initial border size.
+on first join:
+    wait 1 tick
+    rtp(player)
+    
+on player move:
+    if {rtp::%players's uuid%} is true:
+        cancel event
+
+# Catch player join, reset their border. Borders are not saved across restarts / shutdowns so we have to re-set them.
+on join:
+    wait 1 tick
+    set world border of player to virtual world border
+    set border center of world border of player to {chunkdata::%player's uuid%::center}
+    set size of world border of player to {chunkdata::%player's uuid%::border}
+
+# Save border size on player leave.
+on leave:
+    set {chunkdata::%player's uuid%::border} to size of world border of player
+
+# Set border on death. Gets reset the same as player leaving, because mojang sucks
+on respawn:
+    wait 1 tick
+    set world border of player to virtual world border
+    set border center of world border of player to {chunkdata::%player's uuid%::center}
+    set size of world border of player to {chunkdata::%player's uuid%::border}
+
+# Check our upgrade gui inventory for clicks.
+on inventory click:
+    if event-inventory = (metadata tag "upgradeGUI" of player):
+        cancel event
+        if event-slot = 10:
+            borderUpgrade(player)
+    if event-inventory = (metadata tag "shopGUI" of player):
+        cancel event
+        if event-slot = 10:
+            openShopGUI(player)

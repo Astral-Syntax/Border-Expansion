@@ -1,0 +1,14 @@
+command upgrade:
+    trigger:
+        openUpgradeGUI(player)
+
+command shop:
+    trigger:
+        openShopGUI(player)
+
+command rtp:
+    trigger:
+        rtp(player)
+#command reset:
+    #trigger:
+        #resetPlayer(player)

@@ -1,0 +1,4 @@
+variables:
+    {baseUpgradeCost} = 250 # Change this to alter the base upgrade cost. (also alters the base the future upgrades are multiplied from)
+    {baseUpgradeMultiplier} = 1 # Change this to alter the upgrade cost multiplier per level. (for the math stuff)
+    {maxBorderLevel} = 99 # Max level the user can upgrade to
