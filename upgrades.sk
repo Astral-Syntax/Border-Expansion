@@ -1,0 +1,13 @@
+# Check and Upgrade the player's world border size.
+function borderUpgrade(p: player):
+    if {balance::%{_p}'s uuid%} >= {upgrades::%{_p}'s uuid%::upgradeCost}:
+        set {_x} to (random number between 3 and 9)
+        expand world border of {_p} by {_x} in 6 seconds
+        set {chunkdata::%{_p}'s uuid%::border} to size of world border of {_p}
+        add 1 to {upgrades::%{_p}'s uuid%::borderLevel}
+        send "&3Border Game &7| &aYou upgraded your Border Size to level &c%{upgrades::%{_p}'s uuid%::borderLevel}% which increased your border by &c%{_x}%&a!" to {_p}
+        set {balance::%{_p}'s uuid%} to ({balance::%{_p}'s uuid%} - {upgrades::%{_p}'s uuid%::upgradeCost})
+        upgradeCost({_p})
+        set slot 10 of metadata tag "upgradeGUI" of {_p} to barrier block named "&6Border Size" with lore "&fCurrent Border Size: &a%{chunkdata::%{_p}'s uuid%::border}%" and "&fLevel: &a%{upgrades::%{_p}'s uuid%::borderLevel}%" and "&fCost: &a%{upgrades::%{_p}'s uuid%::upgradeCost}%" and "&fYour Balance: &a%{balance::%{_p}'s uuid%}%"
+        stop
+    send "not enough money" to {_p}

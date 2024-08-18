@@ -1,0 +1,5 @@
+function blockShopGUI(p: player):
+    set metadata tag "blockShopGUI_Page1" of {_p} to chest inventory with 4 rows named "&2Server Shop - Blocks | Page 1"
+    #set slot 27 of metadata tag "blockShopGUI" of {_p} to arrow named "&4<- Back"
+    set slot 35 of metadata tag "blockShopGUI" of {_p} to arrow named "&4Next ->"
+    set slot 10 of metadata tag "blockShopGUI" of {_p} to dirt block named "&2Dirt" with lore "&f$1.00" and " " and " " and "&4Left Click - Sell 1" and "&4Middle Click - Sell 32" and "&4Right Click - Sell 64"

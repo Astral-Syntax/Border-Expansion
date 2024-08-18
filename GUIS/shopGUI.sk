@@ -1,0 +1,6 @@
+function openShopGUI(p: player):
+    set metadata tag "shopGUI" of {_p} to chest inventory with 4 rows named "&2Server Shop"
+    set slot 10 of metadata tag "shopGUI" of {_p} to grass block named "&2Blocks"
+    set slot 11 of metadata tag "shopGUI" of {_p} to raw iron named "&2Ores"
+    set slot 12 of metadata tag "shopGUI" of {_p} to wheat named "&2Crops"
+    open (metadata tag "shopGUI" of {_p}) to {_p}

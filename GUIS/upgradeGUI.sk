@@ -1,0 +1,10 @@
+# Open and Update the upgrade GUI.
+function openUpgradeGUI(p: player):
+    upgradeCost({_p})
+    wait 1 tick
+    set metadata tag "upgradeGUI" of {_p} to chest inventory with 3 rows named "&2Border Game - Upgrades"
+    set slot (numbers from 0 to 9) of metadata tag "upgradeGUI" of {_p} to black stained glass pane named " "
+    set slot (numbers from 17 to 28) of metadata tag "upgradeGUI" of {_p} to black stained glass pane named " "
+    set slot 10 of metadata tag "upgradeGUI" of {_p} to barrier block named "&6Border Size" with lore "&fCurrent Border Size: &a%{chunkdata::%{_p}'s uuid%::border}%" and "&fLevel: &a%{upgrades::%{_p}'s uuid%::borderLevel}%" and "&fCost: &a%{upgrades::%{_p}'s uuid%::upgradeCost}%" and "&fYour Balance: &a%{balance::%{_p}'s uuid%}%"
+    set slot 11 of metadata tag "upgradeGUI" of {_p} to diamond named "&6Ore Yield" with lore "&fCurrent Ore Yield: x(amount)%%"
+    open (metadata tag "upgradeGUI" of {_p}) to {_p}
